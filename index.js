@@ -611,6 +611,16 @@ app.get("/jobs/",(req,res)=>{
     res.send(jobs);
 });
 
+arr_a=[];
+for(let i of jobs){
+    arr_a.push(i.id);
+}
+const x=Math.floor(Math.random()*60)
+
+app.get("/jobs/id",(req,res)=>{
+    res.send(jobs[x]);
+});
+
 app.all("*",(req,res)=>{
     res.status(404).send("Name Error");
 });
